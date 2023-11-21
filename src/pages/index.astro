@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Pau's Portfolio">
+	<main class="bg-white mx-auto max-w-3xl shadow-xl p-12 flex flex-col gap-20">
+		<section class="w-full flex items-center gap-5">
+			<div class="w-44 h-44 border-black border-4 bg-white"></div>
+			<div class="flex flex-col gap-2">
+				<h1 class="text-5xl font-bold">Pau Zaragoza</h1>
+				<h3 class="text-xl">I'm a student.</h3>
+				<div>
+					<button class="border-black border-b-4 border-r-4 px-4 py-2 mt-4 bg-red-300">
+						<i class="fa-solid fa-file-arrow-down text-black mr-2"></i>
+						Resume
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<Section title="Experience">
+			<div>
+				<ol class="relative border-s-4 border-black px-4 py-6">                  
+					<li class="mb-10 ms-4">
+						<div class="absolute w-4 h-4 bg-black rounded-full mt-1.5 -start-2.5"></div>
+						<time class="mb-1 text-sm font-normal leading-none">2019 - 2021</time>
+						<h3 class="text-xl font-semibold">Tech Bachelor • Stucom (Spain)</h3>
+						<p class="mb-4 text-base font-normal">Graduated with honors.</p>
+					</li>
+					<li class="mb-10 ms-4">
+						<div class="absolute w-4 h-4 bg-black rounded-full mt-1.5 -start-2.5"></div>
+						<time class="mb-1 text-sm font-normal leading-none">2019 - 2021</time>
+						<h3 class="text-xl font-semibold">Academica's DUAL Diploma ®</h3>
+						<p class="text-base font-normal"></p>
+					</li>
+					<li class="ms-4">
+						<div class="absolute w-4 h-4 bg-black rounded-full mt-1.5 -start-2.5"></div>
+						<time class="mb-1 text-sm font-normal leading-none">2021 - Present</time>
+						<h3 class="text-xl font-semibold">Informatics Engineering • UPC (Spain)</h3>
+						<p class="text-base font-normal"></p>
+					</li>
+				</ol>
+			</div>
+		</Section>
+
+		<Section title="Projects">
+			
+		</Section>
+
+		<Section title="Socials">
+			
+		</Section>
+
+		<Footer />
+	</main>
+</Layout>
