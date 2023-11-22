@@ -1,57 +1,32 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Section from '../components/Section.astro';
+import Layout from '../layouts/MainLayout.astro';
+import Experience from '../components/sections/Experience.astro';
+import Projects from '../components/sections/Projects.astro';
+import Socials from '../components/sections/Socials.astro';
 import Footer from '../components/Footer.astro';
+import Button from "../components/Button.astro"
 ---
 
 <Layout title="Pau's Portfolio">
-	<main class="bg-white mx-auto max-w-3xl shadow-xl p-12 flex flex-col gap-20">
-		<section class="w-full flex items-center gap-5">
-			<div class="w-44 h-44 border-black border-4 bg-white"></div>
+	<main class="bg-white max-w-3xl w-full shadow-xl p-12 flex flex-col gap-10" id="home">
+		<section class="w-full flex flex-col sm:flex-row items-center gap-5">
+			<div class="w-44 h-44 border-red-400 border-4 bg-white"></div>
 			<div class="flex flex-col gap-2">
-				<h1 class="text-5xl font-bold">Pau Zaragoza</h1>
-				<h3 class="text-xl">I'm a student.</h3>
-				<div>
-					<button class="border-black border-b-4 border-r-4 px-4 py-2 mt-4 bg-red-300">
-						<i class="fa-solid fa-file-arrow-down text-black mr-2"></i>
-						Resume
-					</button>
+				<h1 class="text-5xl font-bold text-center md:text-start">Pau Zaragoza</h1>
+				<h3 class="text-xl  text-center sm:text-start">I'm a student.</h3>
+				<div class="flex justify-center sm:justify-start">
+					<Button text="Resume" href="">
+						<i class="fa-solid fa-file-arrow-down" slot="before"></i>
+					</Button>
 				</div>
 			</div>
 		</section>
 
-		<Section title="Experience">
-			<div>
-				<ol class="relative border-s-4 border-black px-4 py-6">                  
-					<li class="mb-10 ms-4">
-						<div class="absolute w-4 h-4 bg-black rounded-full mt-1.5 -start-2.5"></div>
-						<time class="mb-1 text-sm font-normal leading-none">2019 - 2021</time>
-						<h3 class="text-xl font-semibold">Tech Bachelor • Stucom (Spain)</h3>
-						<p class="mb-4 text-base font-normal">Graduated with honors.</p>
-					</li>
-					<li class="mb-10 ms-4">
-						<div class="absolute w-4 h-4 bg-black rounded-full mt-1.5 -start-2.5"></div>
-						<time class="mb-1 text-sm font-normal leading-none">2019 - 2021</time>
-						<h3 class="text-xl font-semibold">Academica's DUAL Diploma ®</h3>
-						<p class="text-base font-normal"></p>
-					</li>
-					<li class="ms-4">
-						<div class="absolute w-4 h-4 bg-black rounded-full mt-1.5 -start-2.5"></div>
-						<time class="mb-1 text-sm font-normal leading-none">2021 - Present</time>
-						<h3 class="text-xl font-semibold">Informatics Engineering • UPC (Spain)</h3>
-						<p class="text-base font-normal"></p>
-					</li>
-				</ol>
-			</div>
-		</Section>
+		<Experience />
 
-		<Section title="Projects">
-			
-		</Section>
+		<Projects />
 
-		<Section title="Socials">
-			
-		</Section>
+		<Socials />
 
 		<Footer />
 	</main>

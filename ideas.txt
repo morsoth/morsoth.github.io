@@ -5,3 +5,5 @@ Video Midudev Astro 3.0: https://www.youtube.com/watch?v=RB5tR_nqUEw&t=2671s
 
 Portfolio referencia 1: https://eduardorl.vercel.app/
 Portfolio referencia 2: https://www.mackenziechild.me/
+
+Content Collections: https://docs.astro.build/en/guides/content-collections/

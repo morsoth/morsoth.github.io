@@ -1,0 +1,19 @@
+---
+import Section from '../Section.astro';
+import Project from '../Project.astro';
+---
+
+<Section title="Projects">
+    <i class="fa-solid fa-briefcase text-red-200 ml-2" slot="icon"></i>
+    <div class="flex flex-col gap-12 mt-6">
+        <Project 
+            title="Web Portfolio" 
+            description="My personal Web Portfolio made with Astro and Tailwind."
+            img="web-portfolio.png"
+            href="/" 
+            github="https://github.com"
+            page="/projects/test"
+            tech={[["icons/astro.svg", "Astro"], ["icons/tailwind.svg", "Tailwind"]]} 
+        />
+    </div>
+</Section>

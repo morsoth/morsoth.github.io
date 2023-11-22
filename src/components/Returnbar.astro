@@ -1,0 +1,11 @@
+---
+import Slot from "./Slot.astro"
+---
+
+<nav class="sticky top-0 h-screen hidden lg:flex items-center">
+    <div class="flex flex-col gap-6">
+        <Slot href="/#projects">
+            <i class="fa-solid fa-arrow-left text-xl z-10"></i>
+        </Slot>
+    </div>
+</nav>

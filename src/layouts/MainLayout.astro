@@ -1,0 +1,44 @@
+---
+import Sidebar from '../components/Sidebar.astro';
+
+import '@fontsource-variable/montserrat';
+import '@fontsource-variable/jetbrains-mono';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<script src="https://kit.fontawesome.com/803f0f09c6.js" crossorigin="anonymous"></script>
+	</head>
+	<body class="flex justify-center gap-8">
+		<Sidebar />
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	html {
+		scroll-behavior: smooth;
+	}
+	body {
+		font-family: 'Montserrat Variable', sans-serif;
+		background-image: radial-gradient(rgb(254 226 226) 4px, transparent 0);
+		background-size: 47px 47px;
+		background-position: center;
+	}
+	code {
+		font-family: 'JetBrains Mono Variable', monospace;
+	}
+</style>

@@ -1,7 +1,8 @@
 ---
-import Navbar from '../components/Navbar.astro';
+import Returnbar from '../components/Returnbar.astro';
 
 import '@fontsource-variable/montserrat';
+import '@fontsource-variable/jetbrains-mono';
 
 interface Props {
 	title: string;
@@ -21,29 +22,26 @@ const { title } = Astro.props;
 		<title>{title}</title>
 		<script src="https://kit.fontawesome.com/803f0f09c6.js" crossorigin="anonymous"></script>
 	</head>
-	<body class="">
-		<Navbar />
-		<slot />
+	<body class="flex justify-center gap-8">
+		<Returnbar />
+		<main class="bg-white max-w-3xl w-full shadow-xl p-12 flex flex-col gap-14" id="home">
+			<slot />
+		</main>
 	</body>
 </html>
 
 <style is:global>
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+	html {
+		scroll-behavior: smooth;
 	}
 	body {
 		font-family: 'Montserrat Variable', sans-serif;
 		background: white;
-		background-image: radial-gradient(#f0f0f0 4px, transparent 0);
+		background-image: radial-gradient(rgb(254 226 226) 4px, transparent 0);
 		background-size: 47px 47px;
 		background-position: center;
+	}
+	code {
+		font-family: 'JetBrains Mono Variable', monospace;
 	}
 </style>
