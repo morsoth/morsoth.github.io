@@ -14,7 +14,7 @@ interface Props {
 const { title, description, href, img, github, page, tech } = Astro.props;
 ---
 
-<div class="grid flex-col sm:grid-cols-2 gap-2 sm:gap-6">
+<div class="grid flex-col sm:grid-cols-2 gap-4 sm:gap-6">
     <a href={href} target="_blank" class="relative h-52 w-full border-t-4 border-l-4 border-red-400 bg-red-400 overflow-hidden">
         <img src={img} alt="" class="box-border h-full w-full absolute hover:translate-x-4 hover:translate-y-4 transition-all hover:transition-all hover:duration-300 object-cover cursor-pointer">
     </a>

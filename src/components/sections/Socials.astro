@@ -1,8 +1,21 @@
 ---
 import Section from '../Section.astro';
+import Social from "../Social.astro";
 ---
 
 <Section title="Socials">
     <i class="fa-solid fa-at text-red-200 ml-2" slot="icon"></i>
-    
+    <div class="flex gap-8 mt-6 flex-wrap">
+        <Social text="Github" href="https://github.com/Morsoth119" target="_blank" color="rgb(0, 0, 0)">
+            <img src="icons/github.svg" alt="" class="h-6"  slot="before">
+        </Social>
+        <!--
+        <Social text="Youtube" href="https://youtube.com" target="_blank" color="rgb(255, 0, 0)">
+            <img src="icons/youtube.svg" alt="" class="h-6"  slot="before">
+        </Social>
+        <Social text="Instagram" href="https://instagram.com" target="_blank" color="rgb(195, 42, 163)">
+            <img src="icons/instagram.svg" alt=""  class="h-6" slot="before">
+        </Social>
+        -->
+    </div>
 </Section>

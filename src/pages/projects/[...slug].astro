@@ -1,0 +1,27 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import MDLayout from '../../layouts/MDLayout.astro';
+
+interface Props {
+	entry: CollectionEntry<'projects'>;
+}
+
+export async function getStaticPaths() {
+	const work = await getCollection('projects');
+	return work.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<MDLayout title='TSTING'>
+    <div class="flex flex-col sm:flex-row items-center justify-between border-b-4 border-black px-2 py-6">
+        <h1 class="text-5xl font-bold text-center sm:text-start">{entry.data.title}</h1>
+        <h4 class="mx-8 my-4 text-red-400 text-lg">{entry.data.publishDate}</h4>
+    </div>
+    <Content />
+</MDLayout>

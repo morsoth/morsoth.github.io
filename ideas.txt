@@ -7,3 +7,6 @@ Portfolio referencia 1: https://eduardorl.vercel.app/
 Portfolio referencia 2: https://www.mackenziechild.me/
 
 Content Collections: https://docs.astro.build/en/guides/content-collections/
+
+Icons: https://fontawesome.com/search?o=r&m=free&s=solid
+SVGs: https://worldvectorlogo.com/es
