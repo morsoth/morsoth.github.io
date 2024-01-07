@@ -7,13 +7,31 @@ import Project from '../Project.astro';
     <i class="fa-solid fa-briefcase text-red-200 ml-2" slot="icon"></i>
     <div class="flex flex-col gap-12 mt-6">
         <Project 
-            title="Web Portfolio" 
-            description="My personal Web Portfolio made with Astro and Tailwind."
-            img="web-portfolio.png"
+            title="ZeOS" 
+            description="An OS made from scratch as a practice for the university."
+            img="imgs/zeos.png"
             href="/" 
-            github="https://github.com"
-            page="/projects/web-portfolio"
-            tech={[["icons/astro.svg", "Astro"], ["icons/tailwind.svg", "Tailwind"]]} 
+            github="https://gitlab.com/Dorovich/zeos"
+            page="/projects/zeos"
+            tech={[["icons/c.svg", "C"], ["icons/assembly.svg", "Assembly x86"]]} 
         />
+        <Project 
+            title="DIY Console" 
+            description="A DIY Console I made by myself with an Arduino Uno."
+            img=""
+            href="/" 
+            github=""
+            page="/projects/test"
+            tech={[["icons/arduino.svg", "Arduino"], ["icons/fusion-360.svg", "Fusion 360"]]} 
+        />
+        <Project 
+        title="Web Portfolio" 
+        description="My personal Web Portfolio made with Astro and Tailwind."
+        img="imgs/web-portfolio.png"
+        href="/" 
+        github="https://github.com"
+        page="/projects/web-portfolio"
+        tech={[["icons/astro.svg", "Astro"], ["icons/tailwind.svg", "Tailwind"]]} 
+    />
     </div>
 </Section>

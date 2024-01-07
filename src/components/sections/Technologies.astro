@@ -1,0 +1,80 @@
+---
+import Section from '../Section.astro';
+import Technology from '../Technology.astro';
+---
+
+<Section title="Technologies">
+    <i class="fa-solid fa-gears text-red-200 ml-2" slot="icon"></i>
+    <div class="mt-8 grid grid-cols-4 gap-6">
+        
+        <div class="relative col-span-4 sm:col-span-2 row-span-2 grid grid-cols-4 sm:grid-cols-2 gap-6 border-2 border-red-200 pb-8 pt-10 px-8">
+            <h4 class="absolute left-4 -top-3 font-semibold bg-white pb-1 px-4 border-red-200 border-b-2 border-r-2">Programming Languages</h4>
+            <Technology
+                name="C"
+                icon="icons/c.svg"
+            />
+            <Technology
+                name="C++"
+                icon="icons/cpp.svg"
+            />
+            <Technology
+                name="Assembly x86"
+                icon="icons/assembly.svg"
+            />
+            <Technology
+                name="Python"
+                icon="icons/python.svg"
+            />
+        </div>
+        <div class="relative col-span-4 sm:col-span-2 row-span-3 grid grid-cols-4 sm:grid-cols-2 gap-6 border-2 border-red-200 pb-8 pt-10 px-8">
+            <h4 class="absolute left-4 -top-3 font-semibold bg-white pb-1 px-4 border-red-200 border-b-2 border-r-2">Web Development</h4>
+            <Technology
+                name="HTML"
+                icon="icons/html.svg"
+            />
+            <Technology
+                name="CSS"
+                icon="icons/css.svg"
+            />
+            <Technology
+                name="JavaScript"
+                icon="icons/js.svg"
+            />
+            <Technology
+                name="Astro"
+                icon="icons/astro.svg"
+            />
+            <Technology
+                name="Tailwind"
+                icon="icons/tailwind.svg"
+            />
+        </div>
+        <div class="relative col-span-4 sm:col-span-2 row-span-2 grid grid-cols-4 sm:grid-cols-2 gap-6 border-2 border-red-200 pb-8 pt-10 px-8">
+            <h4 class="absolute left-4 -top-3 font-semibold bg-white pb-1 px-4 border-red-200 border-b-2 border-r-2">Microcontrollers</h4>
+            <Technology
+                name="Arduino"
+                icon="icons/arduino.svg"
+            />
+            <Technology
+                name="Raspberry Pi"
+                icon="icons/raspberry-pi.svg"
+            />
+            <Technology
+                name="PIC"
+                icon="icons/microchip.svg"
+            />            
+        </div>
+        <div class="relative col-span-4 sm:col-span-2 row-span-1 grid grid-cols-4 sm:grid-cols-2 gap-6 border-2 border-red-200 pb-8 pt-10 px-8">
+            <h4 class="absolute left-4 -top-3 font-semibold bg-white pb-1 px-4 border-red-200 border-b-2 border-r-2">Others</h4>
+            <Technology
+                name="Photoshop"
+                icon="icons/photoshop.svg"
+            />
+            <Technology
+                name="Fusion 360"
+                icon="icons/fusion-360.svg"
+            />            
+        </div>
+    
+    </div>
+</Section>

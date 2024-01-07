@@ -2,6 +2,7 @@
 import Layout from '../layouts/MainLayout.astro';
 import Experience from '../components/sections/Experience.astro';
 import Projects from '../components/sections/Projects.astro';
+import Technologies from '../components/sections/Technologies.astro';
 import Socials from '../components/sections/Socials.astro';
 import Footer from '../components/Footer.astro';
 import Button from "../components/Button.astro";
@@ -16,9 +17,15 @@ import Button from "../components/Button.astro";
 			<div class="flex flex-col gap-2">
 				<h1 class="text-5xl font-bold text-center md:text-start">Pau Zaragoza</h1>
 				<h3 class="text-xl  text-center sm:text-start">I'm a student.</h3>
-				<div class="flex justify-center sm:justify-start">
+				<div class="flex justify-center sm:justify-start gap-4">
 					<Button text="Resume" href="cv.pdf">
 						<i class="fa-solid fa-file-arrow-down" slot="before"></i>
+					</Button>
+					<Button href="cv.pdf">
+						<img src="icons/linkedin-black.svg" alt="" slot="before" class="h-5">
+					</Button>
+					<Button href="https://github.com/Morsoth119">
+						<img src="icons/github.svg" alt="" slot="before" class="h-5">
 					</Button>
 				</div>
 			</div>
@@ -27,6 +34,8 @@ import Button from "../components/Button.astro";
 		<Experience />
 
 		<Projects />
+
+		<Technologies />
 
 		<Socials />
 

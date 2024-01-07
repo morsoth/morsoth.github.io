@@ -6,12 +6,12 @@ interface Props {
     description: string,
     img: string,
     href: string,
-    github:string,
-    page: string,
-    tech: Array<Array<string>>;
+    tech: Array<Array<string>>,
+    github?:string,
+    page?: string;
 }
 
-const { title, description, href, img, github, page, tech } = Astro.props;
+const { title, description, href, img, tech, github, page } = Astro.props;
 ---
 
 <div class="grid flex-col sm:grid-cols-2 gap-4 sm:gap-6">
@@ -23,7 +23,7 @@ const { title, description, href, img, github, page, tech } = Astro.props;
         <p>{description}</p>
         <div class="flex flex-row gap-3">
             {tech.map((item) => (
-                <div class="relative group/tooltip ">
+                <div class="relative group/tooltip">
                     <img class="h-6" src={item[0]} alt="">
                     <span class="absolute pointer-events-none transition-all opacity-0 z-20 bottom-full -translate-y-0 pt-1 pb-2 px-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-black text-xs bg-white border-2 border-black group-hover/tooltip:opacity-100 group-hover/tooltip:-translate-y-2">
                         {item[1]}
@@ -32,12 +32,20 @@ const { title, description, href, img, github, page, tech } = Astro.props;
             ))}
         </div>
         <div class="flex gap-6">
-            <Button text="Github" href={github} target="_blank">
-                <i class="fa-solid fa-code-branch" slot="after"></i>
-            </Button>
-            <Button text="Read" href={page}>
-                <i class="fa-solid fa-book" slot="after"></i>
-            </Button>
+            {
+                github ? 
+                <Button text="Github" href={github} target="_blank">
+                    <i class="fa-solid fa-code-branch" slot="after"></i>
+                </Button> 
+                : ''
+            }
+            {
+                page ? 
+                <Button text="Read" href={page}>
+                    <i class="fa-solid fa-book" slot="after"></i>
+                </Button> 
+                : ''
+            }
         </div>
     </div>
 </div>
