@@ -31,8 +31,7 @@ int main() {
 [Google link](https://www.google.com)
 [Google link with title](https://www.google.com "Google's Homepage")
 
-![img-1](imgs/web-portfolio.png)
-![img-2](imgs/web-portfolio-2.png)
+![img-1](../../../public/imgs/web-portfolio.png)
 
 |  A  |  B  |  C  |
 |:----|:---:|----:|
