@@ -1,10 +1,6 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
+import { getCollection } from 'astro:content';
 import MDLayout from '../../layouts/MDLayout.astro';
-
-interface Props {
-	entry: CollectionEntry<'projects'>;
-}
 
 export async function getStaticPaths() {
 	const work = await getCollection('projects');
