@@ -12,7 +12,7 @@ import Button from "../components/Button.astro";
 	<main class="bg-white max-w-3xl w-full shadow-xl p-12 flex flex-col gap-10" id="home">
 		<section class="w-full flex flex-col sm:flex-row items-center gap-5">
 			<div class="w-44 h-44 border-red-400 border-4 bg-white overflow-hidden">
-				<img src="" alt="" class="object-cover h-full w-full">
+				<img src="imgs/profile.png" alt="" class="object-cover h-full w-full">
 			</div>
 			<div class="flex flex-col gap-2">
 				<h1 class="text-5xl font-bold text-center md:text-start">Pau Zaragoza</h1>
@@ -28,6 +28,10 @@ import Button from "../components/Button.astro";
 						<img src="icons/github.svg" alt="" slot="before" class="h-5">
 					</Button>
 				</div>
+				<button onclick="navigator.clipboard.writeText('morsoth119@gmail.com')" class="flex justify-center sm:justify-start mt-2 w-full">
+					<span class="border-2 border-red-200 pl-4 py-1 cursor-pointer">morsoth119@gmail.com</span>
+					<i class="fa-solid fa-copy text-white bg-red-200 px-4 py-2"></i>
+				</button>
 			</div>
 		</section>
 
