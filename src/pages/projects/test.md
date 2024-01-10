@@ -1,4 +1,5 @@
 ---
+layout: "../../layouts/MDLayout.astro"
 title: Test file MD
 publishDate: 23/11/2023
 ---
