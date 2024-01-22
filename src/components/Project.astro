@@ -7,11 +7,11 @@ interface Props {
     img: string,
     href: string,
     tech: Array<Array<string>>,
-    github?:string,
+    code?:string,
     page?: string;
 }
 
-const { title, description, href, img, tech, github, page } = Astro.props;
+const { title, description, href, img, tech, code, page } = Astro.props;
 ---
 
 <div class="grid flex-col sm:grid-cols-2 gap-4 sm:gap-6">
@@ -33,8 +33,8 @@ const { title, description, href, img, tech, github, page } = Astro.props;
         </div>
         <div class="flex gap-6">
             {
-                github ? 
-                <Button text="Github" href={github} target="_blank">
+                code ? 
+                <Button text="Code" href={code} target="_blank">
                     <i class="fa-solid fa-code-branch" slot="after"></i>
                 </Button> 
                 : ''
