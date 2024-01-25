@@ -44,11 +44,7 @@ make emul
 
 ## Understanding a basic OS
 
-WHY DO WE USE OS???
-
 ### ZeOS
-
-???
 
 ## Building a basic OS
 

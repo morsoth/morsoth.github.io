@@ -11,7 +11,7 @@ interface Props {
     page?: string;
 }
 
-const { title, description, href, img, tech, code, page } = Astro.props;
+const { title, description, href, img, tech, code="", page="" } = Astro.props;
 ---
 
 <div class="grid flex-col sm:grid-cols-2 gap-4 sm:gap-6">
