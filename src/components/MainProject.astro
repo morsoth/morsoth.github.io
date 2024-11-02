@@ -1,0 +1,52 @@
+---
+import ButtonDark from './ButtonDark.astro';
+
+interface Props {
+    title: string,
+    description: string,
+    img?: string,
+    tech: Array<Array<string>>,
+    code?:string,
+    page?: string;
+}
+
+const { title, description, img, tech, code="", page="" } = Astro.props;
+---
+
+<div class="grid md:grid-cols-2 gap-6 bg-gradient-to-br from-gray to-black col-span-2 rounded-3xl px-12 py-8 text-white shadow-3xl">
+    <div class="flex flex-col justify-between">
+        <div class="flex flex-col">
+            <h4 class="text-3xl font-bold mb-4">{title}</h4>
+            <p class="mb-4 text-pretty">{description}</p>
+            <div class="flex flex-row gap-4 mb-6">
+                {tech.map((item) => (
+                    <div class="relative group/tooltip">
+                        <img class="h-8" src={item[0]} alt="">
+                        <span class="absolute pointer-events-none transition-all opacity-0 bottom-full -translate-y-0 pt-1 pb-2 px-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-black text-xs font-medium bg-white shadow-glow rounded-full group-hover/tooltip:opacity-100 group-hover/tooltip:-translate-y-2">
+                            {item[1]}
+                        </span>
+                    </div>
+                ))}
+            </div>
+        </div>
+        <div class="flex gap-6">
+            {
+                code ? 
+                <ButtonDark text="Code" href={code} target="_blank">
+                    <i class="fa-solid fa-code-branch" slot="after"></i>
+                </ButtonDark> 
+                : ''
+            }
+            {
+                page ? 
+                <ButtonDark text="Read" href={page}>
+                    <i class="fa-solid fa-book" slot="after"></i>
+                </ButtonDark> 
+                : ''
+            }
+        </div>
+    </div>
+    <div class="">
+        <img src={img} alt="" class="h-72 w-full rounded-3xl bg-olive ">
+    </div>
+</div>

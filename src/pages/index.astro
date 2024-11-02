@@ -1,44 +1,55 @@
 ---
-import Layout from '../layouts/MainLayout.astro';
-import Experience from '../components/sections/Experience.astro';
-import Projects from '../components/sections/Projects.astro';
-import Technologies from '../components/sections/Technologies.astro';
-import Socials from '../components/sections/Socials.astro';
-import Footer from '../components/Footer.astro';
-import Button from "../components/Button.astro";
+import Layout from "../layouts/MainLayout.astro"
+
+import Projects from "../components/sections/Projects.astro"
+import Experience from "../components/sections/Experience.astro"
+import Studies from "../components/sections/Studies.astro"
+import Technologies from "../components/sections/Technologies.astro"
+
+import ButtonLight from "../components/ButtonLight.astro"
+import ButtonCircle from "../components/ButtonCircle.astro"
+import ButtonDark from "../components/ButtonDark.astro"
 ---
 
 <Layout title="Pau's Portfolio">
-	<main class="bg-white max-w-3xl w-full shadow-xl p-10 sm:p-12 flex flex-col gap-10" id="home">
-		<section class="w-full flex flex-col sm:flex-row items-center gap-5">
-			<div class="w-44 h-44 border-red-400 border-4 bg-white overflow-hidden">
-				<img src="imgs/profile.png" alt="" class="object-cover h-full w-full">
+    <main class="flex flex-col gap-24 w-full max-w-6xl min-h-screen shadow-2xl mt-24 p-8 md:p-20">
+        <section class="flex flex-col-reverse lg:flex-row items-center gap-16 lg:py-40" id="home">
+            <div class="flex flex-col justify-center items-center lg:items-start">
+                <h1 class="text-6xl font-extrabold mb-1 text-center lg:text-start">PAU ZARAGOZA</h1>
+                <h3 class="text-2xl font-semibold text-blue mb-10">Computer Engineer</h3>
+                <p class="mb-8 text-black text-pretty leading-7 text-center lg:text-start">
+                    I am a passionate computer engineering student with a keen interest in transforming <b>ideas</b> into <b>functional projects</b>. My journey in technology has fueled my <b>creativity</b> and <b>problem-solving skills</b>, allowing me to explore diverse areas within computer engineering.
+                </p>
+                <div class="flex gap-4">
+                    <ButtonLight text="Resume" href="CV.pdf" target="_blank">
+                        <i class="fa-solid fa-file-arrow-down" slot="before"></i>
+					</ButtonLight>
+                    <ButtonCircle href="https://github.com/morsoth" target="_blank">
+                        <i class="fa-brands fa-square-github"></i>
+					</ButtonCircle>
+                    <ButtonCircle href="https://www.linkedin.com/in/pau-zaragoza-gallardo-86b925274/" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+					</ButtonCircle>
+                </div>
+            </div>
+            <div class="flex items-center overflow-hidden h-40 max-w-40 smin-w-40 md:h-64 md:max-w-64 md:min-w-64 lg:h-72 lg:max-w-72 lg:min-w-72 shadow-lg rounded-2xl bg-olive">
+				<img src="imgs/profile.png" alt="" class="object-cover">
 			</div>
-			<div class="flex flex-col gap-2">
-				<h1 class="text-5xl font-bold text-center md:text-start">Pau Zaragoza</h1>
-				<h3 class="text-xl  text-center sm:text-start">I'm a student.</h3>
-				<div class="flex justify-center sm:justify-start gap-4">
-					<Button text="Resume" href="CV.pdf" target="_blank">
-						<i class="fa-solid fa-file-arrow-down" slot="before"></i>
-					</Button>
-					<Button href="https://github.com/morsoth" target="_blank">
-						<img src="icons/github.svg" alt="" slot="before" class="h-5">
-					</Button>
-					<Button href="https://www.linkedin.com/in/pau-zaragoza-gallardo-86b925274/" target="_blank">
-						<img src="icons/linkedin-black.svg" alt="" slot="before" class="h-5">
-					</Button>
-				</div>
-			</div>
-		</section>
+        </section>
 
-		<Experience />
+        <Projects />
 
-		<Projects />
+        <div class="flex justify-center items-center gap-10 p-6 bg-gradient-to-br from-gray to-gray shadow-3xl text-white -mx-20">
+            <h5 class="text-2xl font-medium">Check out my YouTube channel</h5>
+            <ButtonDark text="YouTube" href="" target="_blank">
+                <i class="fa-brands fa-youtube" slot="before"></i>
+            </ButtonDark>
+        </div>
 
-		<Technologies />
+        <Experience />
 
-		<Socials />
+        <Studies />
 
-		<Footer />
-	</main>
+        <Technologies />
+    </main>
 </Layout>

@@ -1,37 +1,37 @@
 ---
-import Section from '../Section.astro';
-import Project from '../Project.astro';
+import MainProject from "../MainProject.astro";
+import Project from "../Project.astro";
+
+import ButtonLight from "../ButtonLight.astro";
 ---
 
-<Section title="Projects">
-    <i class="fa-solid fa-briefcase text-red-200 ml-2" slot="icon"></i>
-    <div class="flex flex-col gap-12 mt-6">
+<section class="flex flex-col scroll-mt-36 gap-10" id="projects">
+    <h2 class="text-6xl font-semibold mb-10 text-center md:text-start">PROJECTS</h2>
+
+    <div class="flex flex-col md:grid grid-cols-1 md:grid-cols-2 gap-10">
+        <MainProject 
+            title="ZeOS" 
+            description="A basic OS made from scratch as a practice for the university."
+            code="https://github.com/morsoth/zeos"
+            page="a"
+            tech={[["icons/c.svg", "C"], ["icons/assembly.svg", "x86 Assembly"]]}
+        />
         <Project 
             title="ZeOS" 
             description="A basic OS made from scratch as a practice for the university."
-            img="imgs/zeos.png"
-            href="/" 
-            code="https://gitlab.com/Dorovich/zeos"
-            page="/projects/zeos"
-            tech={[["icons/c.svg", "C"], ["icons/assembly.svg", "x86 Assembly"]]} 
+            code="https://github.com/morsoth/zeos"
+            tech={[["icons/c.svg", "C"], ["icons/assembly.svg", "x86 Assembly"]]}
         />
         <Project 
-            title="DIY Basic Arduino Console" 
-            description="A basic console I made using an Arduino Uno. Programmed a game too!!"
-            img="imgs/diy-console.png"
-            href="/" 
-            code="https://github.com/morsoth/DIY-basic-arduino-console"
-            page="/projects/diy-console"
-            tech={[["icons/arduino.svg", "Arduino"], ["icons/platformio.svg", "PlatformIO"]]} 
+        title="DIY Basic Arduino Console" 
+        description="A basic console I made using an Arduino Uno. Programmed a game too!!"
+        code="https://github.com/morsoth/DIY-basic-arduino-console"
+        tech={[["icons/arduino.svg", "Arduino"], ["icons/platformio.svg", "PlatformIO"]]}
         />
-        <Project 
-        title="Web Portfolio" 
-        description="My personal Web Portfolio made with Astro and Tailwind."
-        img="imgs/web-portfolio.png"
-        href="/" 
-        code="https://github.com/morsoth/morsoth.github.io"
-        page=""
-        tech={[["icons/astro.svg", "Astro"], ["icons/tailwind.svg", "Tailwind"]]} 
-    />
     </div>
-</Section>
+    <div class="flex justify-center">
+        <ButtonLight text="Github" href="https://github.com/morsoth" target="_blank">
+            <i class="fa-brands fa-github" slot="before"></i>
+        </ButtonLight>
+    </div>
+</section>

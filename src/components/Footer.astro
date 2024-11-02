@@ -1,3 +1,46 @@
-<footer class="w-full flex justify-center mt-8">
-    Pau Zaragoza Gallardo
+---
+
+---
+
+<footer class="flex justify-center w-screen h-32 bg-gray text-white">
+    <div class="flex flex-row justify-between items-center w-full max-w-6xl px-20 py-6 shadow-2xl">
+        <div class="flex flex-col gap-2">
+            <span class="text-lg font-medium">Pau Zaragoza Gallardo</span>
+            <button class="flex items-center gap-2 text-beige hover:text-blue relative group/tooltip" id="btn">
+                <span>
+                    morsoth119@gmail.com <i class="fa-solid fa-clone"></i>
+                </span>
+                <span class="absolute pointer-events-none transition-all opacity-0 bottom-full -translate-y-0 pt-1 pb-2 px-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-black text-xs font-medium bg-white shadow-glow rounded-full group-hover/tooltip:opacity-100 group-hover/tooltip:-translate-y-2" id="copiedText">
+                    Copy
+                </span>
+            </button>
+        </div>
+        <div class="flex gap-4 text-3xl">
+            <a href="https://github.com/morsoth" class="p-2">
+                <i class="fa-brands fa-square-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/pau-zaragoza-gallardo-86b925274/" class="p-2">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="" class="p-2">
+                <i class="fa-brands fa-youtube"></i>
+            </a>            
+        </div>
+    </div>
 </footer>
+
+<script>
+    const btn = document.getElementById("btn")
+    const span = document.getElementById("copiedText")
+
+    btn.addEventListener("click", () => {
+        span.textContent = "Copied"
+        navigator.clipboard.writeText('morsoth119@gmail.com')
+    })
+
+    btn.addEventListener("mouseleave", () => {
+        setTimeout(() => {
+            span.textContent = "Copy"
+    }, 100);
+    })
+</script>
