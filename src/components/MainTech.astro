@@ -7,7 +7,7 @@ interface Props {
 const { name, icon } = Astro.props;
 ---
 
-<div class="col-span-3 flex flex-col items-center justify-between gap-2 px-6">
-    <img src={icon} alt="" class="h-28">
+<div class="col-span-3 md:col-span-4 lg:col-span-3 flex flex-col items-center gap-2 px-6">
+    <img src={icon} alt="" class="max-h-24">
     <span class="font-semibold text-md text-center text-black">{name}</span>
 </div>

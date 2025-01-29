@@ -12,10 +12,10 @@ interface Props {
 const { title, description, tech, code="", page="" } = Astro.props;
 ---
 
-<div class="flex flex-col justify-between bg-gradient-to-br from-gray to-black rounded-3xl px-12 py-8 text-white shadow-3xl">
-    <div class="flex flex-col">
-        <h4 class="text-3xl font-bold mb-2">{title}</h4>
-        <p class="mb-2 text-pretty">{description}</p>
+<div class="flex flex-col items-center sm:items-start justify-between bg-gradient-to-br from-gray to-black rounded-3xl px-6 py-6 md:px-12 md:py-8 text-white shadow-3xl">
+    <div class="flex flex-col items-center sm:items-start">
+        <h4 class="text-xl md:text-3xl font-bold mb-2">{title}</h4>
+        <p class="mb-2 text-pretty text-center sm:text-start">{description}</p>
         <div class="flex flex-row gap-4 mb-6">
             {tech.map((item) => (
                 <div class="relative group/tooltip">
