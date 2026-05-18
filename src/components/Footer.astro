@@ -1,46 +1,44 @@
 ---
+import IconCopy from '../assets/IconCopy.astro';
+import IconGround from '../assets/IconGround.astro';
 
+const email = 'morsoth119@gmail.com';
 ---
 
-<footer class="flex justify-center w-screen min-h-32 bg-gray text-white">
-    <div class="flex flex-col md:flex-row gap-4 justify-between items-center w-full max-w-6xl px-20 py-6 shadow-2xl">
-        <div class="flex flex-col items-center md:items-start gap-2">
-            <span class="text-lg font-medium">Pau Zaragoza Gallardo</span>
-            <button class="flex items-center gap-2 text-beige hover:text-blue relative group/tooltip" id="btn">
-                <span>
-                    morsoth119@gmail.com <i class="fa-solid fa-clone"></i>
-                </span>
-                <span class="absolute pointer-events-none transition-all opacity-0 bottom-full -translate-y-0 pt-1 pb-2 px-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-black text-xs font-medium bg-white shadow-glow rounded-full group-hover/tooltip:opacity-100 group-hover/tooltip:-translate-y-2" id="copiedText">
-                    Copy
-                </span>
-            </button>
-        </div>
-        <div class="flex gap-4 text-3xl">
-            <a href="https://github.com/morsoth" class="p-2">
-                <i class="fa-brands fa-square-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/pau-zaragoza-gallardo-86b925274/" class="p-2">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a href="" class="p-2">
-                <i class="fa-brands fa-youtube"></i>
-            </a>            
-        </div>
-    </div>
+<footer class="bg-background/60 shadow-md shadow-foreground/10 backdrop-blur-md border-t border-surface">
+	<div class="mx-auto flex max-w-4xl flex-col items-center gap-4 px-8 py-6 font-code text-sm text-muted">
+		<button
+			class="inline-flex cursor-pointer items-center gap-2 transition hover:text-accent"
+			type="button"
+			data-copy-email={email}
+		>
+			{email}
+			<IconCopy class="size-4" stroke="2" />
+		</button>
+
+		<p>
+			Created by
+			<a
+				class="text-accent underline underline-offset-4 transition hover:text-foreground"
+				href="https://github.com/morsoth"
+				target="_blank"
+				rel="noreferrer"
+			>morsoth</a>
+		</p>
+
+		<IconGround class="size-6 text-surface" stroke="1.75" />
+	</div>
 </footer>
 
 <script>
-    const btn = document.getElementById("btn")
-    const span = document.getElementById("copiedText")
+	const copyEmailButton = document.querySelector('[data-copy-email]');
 
-    btn.addEventListener("click", () => {
-        span.textContent = "Copied"
-        navigator.clipboard.writeText('morsoth119@gmail.com')
-    })
+	copyEmailButton?.addEventListener('click', async () => {
+		const email = copyEmailButton.getAttribute('data-copy-email');
+		if (!email) return;
 
-    btn.addEventListener("mouseleave", () => {
-        setTimeout(() => {
-            span.textContent = "Copy"
-    }, 100);
-    })
+		try {
+			await navigator.clipboard.writeText(email);
+		} catch {}
+	});
 </script>

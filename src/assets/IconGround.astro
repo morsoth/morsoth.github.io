@@ -1,0 +1,17 @@
+---
+interface Props {
+	class?: string;
+	stroke?: string;
+}
+
+const { class: className = 'size-6', stroke = '2' } = Astro.props;
+
+const paths = ['M12 13v-8', 'M4 13h16', 'M7 16h10', 'M10 19h4'];
+---
+
+<svg xmlns="http://www.w3.org/2000/svg" class={className} viewBox="0 0 24 24">
+	<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+	{paths.map((path) => (
+		<path fill="none" stroke="currentColor" stroke-width={stroke} stroke-linecap="round" stroke-linejoin="round" d={path} />
+	))}
+</svg>

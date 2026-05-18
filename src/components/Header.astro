@@ -1,15 +1,105 @@
 ---
-
+import IconMenu from '../assets/IconMenu.astro';
+import IconMoon from '../assets/IconMoon.astro';
+import IconSun from '../assets/IconSun.astro';
 ---
 
-<nav class="flex justify-center w-screen h-24 bg-gray text-white text-md font-medium fixed z-20">
-    <div class="flex justify-center lg:justify-between items-center w-full max-w-6xl px-20 py-6 shadow-2xl">
-        <div class="h-16 w-16 bg-olive"></div>
-        <ul class="hidden lg:flex flex-row gap-8">
-            <li><a href="#projects" class="px-4 py-3 hover:text-blue">PROJECTS</a></li>
-            <li><a href="#experience" class="px-4 py-3 hover:text-blue">EXPERIENCE</a></li>
-            <li><a href="#studies" class="px-4 py-3 hover:text-blue">STUDIES</a></li>
-            <li><a href="#technologies" class="px-4 py-3 hover:text-blue">TECHNOLOGIES</a></li>
-        </ul>
-    </div>
-</nav>
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-surface bg-background/60 backdrop-blur-md">
+	<nav class="mx-auto flex h-16 max-w-4xl items-center justify-between px-8">
+		<a
+			class="size-10 inline-flex items-center justify-center text-accent font-code text-2xl font-black transition hover:text-foreground"
+			href="/"
+			aria-label="Home"
+		>PZ</a>
+
+		<div class="hidden items-center justify-center gap-10 text-sm font-medium text-foreground font-code md:flex">
+			<a class="px-3 py-2 transition hover:text-accent" href="#about">About Me</a>
+			<a class="px-3 py-2 transition hover:text-accent" href="#projects">Projects</a>
+			<a class="px-3 py-2 transition hover:text-accent" href="#experience">Experience</a>
+		</div>
+
+		<button
+			data-theme-toggle
+			class="hidden size-8 cursor-pointer items-center justify-center rounded-md border border-surface bg-background text-foreground shadow-md shadow-foreground/10 transition hover:border-accent hover:text-accent md:inline-flex"
+			type="button"
+			aria-label="Toggle dark mode"
+		>
+			<IconSun class="size-4 dark:hidden" stroke="2" />
+			<IconMoon class="hidden size-4 dark:block" stroke="2" />
+		</button>
+
+		<div class="flex items-center gap-3 md:hidden">
+			<button
+				data-theme-toggle
+				class="inline-flex size-8 cursor-pointer items-center justify-center rounded-md border border-surface bg-background text-foreground shadow-md shadow-foreground/10 transition hover:border-accent hover:text-accent"
+				type="button"
+				aria-label="Toggle dark mode"
+			>
+				<IconSun class="size-4 dark:hidden" stroke="2" />
+				<IconMoon class="hidden size-4 dark:block" stroke="2" />
+			</button>
+
+			<button
+				id="mobile-menu"
+				class="inline-flex size-8 cursor-pointer items-center justify-center rounded-md border border-surface bg-background text-foreground shadow-md shadow-foreground/10 transition hover:border-accent hover:text-accent"
+				type="button"
+				aria-label="Menu"
+				aria-controls="mobile-menu-panel"
+				aria-expanded="false"
+			>
+				<IconMenu class="size-5" stroke="2" />
+			</button>
+		</div>
+	</nav>
+
+	<div id="mobile-menu-panel" class="hidden md:hidden">
+		<div class="mx-auto flex max-w-4xl flex-col px-6 py-4 font-code text-sm font-medium text-foreground">
+			<a class="py-2 transition hover:text-accent" href="#about">About Me</a>
+			<a class="py-2 transition hover:text-accent" href="#projects">Projects</a>
+			<a class="py-2 transition hover:text-accent" href="#experience">Experience</a>
+		</div>
+	</div>
+</header>
+
+<script>
+	const header = document.querySelector('#site-header');
+	const themeToggles = document.querySelectorAll('[data-theme-toggle]');
+	const menuToggle = document.querySelector('#mobile-menu');
+	const mobileMenu = document.querySelector('#mobile-menu-panel');
+	const mobileLinks = mobileMenu?.querySelectorAll('a');
+	const root = document.documentElement;
+
+	const updateThemeButtons = () => {
+		themeToggles.forEach((toggle) => {
+			toggle.setAttribute('aria-pressed', String(root.classList.contains('dark')));
+		});
+	};
+
+	const closeMobileMenu = () => {
+		mobileMenu?.classList.add('hidden');
+		menuToggle?.setAttribute('aria-expanded', 'false');
+	};
+
+	themeToggles.forEach((toggle) => {
+		toggle.addEventListener('click', () => {
+			const isDark = root.classList.toggle('dark');
+			localStorage.setItem('theme', isDark ? 'dark' : 'light');
+			updateThemeButtons();
+		});
+	});
+
+	menuToggle?.addEventListener('click', () => {
+		const isHidden = mobileMenu?.classList.toggle('hidden') ?? true;
+		menuToggle.setAttribute('aria-expanded', String(!isHidden));
+	});
+
+	mobileLinks?.forEach((link) => link.addEventListener('click', closeMobileMenu));
+
+	document.addEventListener('click', (event) => {
+		if (mobileMenu?.classList.contains('hidden')) return;
+		if (!(event.target instanceof Node)) return;
+		if (!header?.contains(event.target)) closeMobileMenu();
+	});
+
+	updateThemeButtons();
+</script>

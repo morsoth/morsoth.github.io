@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@import "@fontsource-variable/sora/wght.css";
+@import "@fontsource-variable/jetbrains-mono";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+	--background: #fffafa;
+	--surface: #A6A2B3;
+	--foreground: #111111;
+	--muted: #494857;
+	--accent: #3988EA;
+	--grid: color-mix(in srgb, var(--surface) 50%, transparent);
+}
+
+.dark {
+	--background: #111111;
+	--surface: #494857;
+	--foreground: #fffafa;
+	--muted: #A6A2B3;
+	--accent: #7EAEEC;
+}
+
+@theme inline {
+	--color-background: var(--background);
+	--color-surface: var(--surface);
+	--color-foreground: var(--foreground);
+	--color-muted: var(--muted);
+	--color-accent: var(--accent);
+
+	--font-sans: 'Sora Variable', sans-serif;
+	--font-code: 'JetBrains Mono Variable', monospace;
+}
+
+body {
+	background-image: radial-gradient(circle, var(--grid) 1px, transparent 1px);
+	background-size: 32px 32px;
+}

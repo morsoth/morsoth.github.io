@@ -1,0 +1,87 @@
+---
+import IconCpu from '../../assets/IconCpu.astro';
+import IconLogicXnor from '../../assets/IconLogicXnor.astro';
+import Tag from '../Tag.astro';
+
+const areas = [
+	{
+		title: 'Embedded systems',
+		Icon: IconCpu,
+		description:
+			'I enjoy building close to the hardware, where constraints, timing, and real-world signals shape the solution.',
+		technologies: ['C', 'C++', 'PCB design', 'Microcontrollers', 'Linux', 'ICs', 'Sensors'],
+	},
+	{
+		title: 'Digital design',
+		Icon: IconLogicXnor,
+		description:
+			'I like designing RTL blocks and thinking about architecture, verification, and how logic maps into actual hardware.',
+		technologies: ['VHDL', 'SystemVerilog', 'FPGA', 'RTL', 'Digital logic', 'CPU architecture'],
+	},
+];
+
+const photoSrc = '/me.jpg';
+const photoMask = 'M30 31 Q31 20 42 18 L228 24 Q240 24 239 36 L230 218 Q229 230 217 232 L24 240 Q12 241 14 229 L30 31 Z';
+---
+
+<section id="about" class="py-20">
+	<h2 class="mb-4 font-code text-2xl font-black text-foreground">
+		<span class="text-accent font-normal">01.</span> About Me
+	</h2>
+
+	<div class="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+		<div class="flex max-w-2xl flex-col gap-4">
+			<p class="max-w-2xl text-pretty text-xs leading-5 text-muted sm:text-sm sm:leading-7">
+				I'm interested in the space where software meets hardware: small systems,
+				digital logic, and tools that make engineering work clearer. I enjoy projects
+				that mix practical constraints with careful design, from embedded boards to
+				FPGA and low-level software.
+			</p>
+
+			<p class="max-w-2xl text-pretty text-xs leading-5 text-muted sm:text-sm sm:leading-7">
+				I care about understanding systems from the inside out: how data moves, how
+				logic behaves over time, and how a clean design can make complex hardware feel
+				easier to reason about.
+			</p>
+		</div>
+
+		<figure class="mx-auto w-64 sm:w-72 shrink-0 md:mx-0">
+			<svg class="h-auto w-full overflow-visible" viewBox="0 0 256 256">
+				<defs>
+					<clipPath id="about-photo-mask">
+						<path d={photoMask} />
+					</clipPath>
+				</defs>
+
+				<path fill="none" stroke="var(--accent)" stroke-width="4" d={photoMask} transform="translate(8 12)" />
+
+				<g clip-path="url(#about-photo-mask)">
+					<rect width="256" height="256" fill="var(--background)" />
+					<image href={photoSrc} width="256" height="256" preserveAspectRatio="xMidYMid slice" />
+				</g>
+
+			</svg>
+		</figure>
+	</div>
+
+	<div class="mt-12">
+		<p class="font-code text-sm text-accent">Areas I enjoy</p>
+
+		<div class="mt-4 flex flex-col items-start gap-4 md:flex-row">
+			{areas.map(({ Icon, ...area }) => (
+				<article class="rounded-lg border border-surface bg-background p-5">
+					<h3 class="text-lg font-semibold flex gap-4 items-center">
+						<Icon class="size-8 text-accent" stroke="1.75" />
+						{area.title}
+					</h3>
+					<p class="mt-3 text-pretty text-xs leading-5 text-muted sm:text-sm sm:leading-7">{area.description}</p>
+					<div class="mt-4 flex flex-wrap gap-2">
+						{area.technologies.map((technology) => (
+							<Tag>{technology}</Tag>
+						))}
+					</div>
+				</article>
+			))}
+		</div>
+	</div>
+</section>

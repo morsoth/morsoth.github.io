@@ -1,0 +1,172 @@
+---
+import IconDiode from '../../assets/IconDiode.astro';
+import IconExternalLink from '../../assets/IconExternalLink.astro';
+import Tag from '../Tag.astro';
+
+const studies = [
+	{
+		period: 'To be enroled...',
+		title: 'MSc Electronics Engineering',
+		place: 'UPC (Spain)',
+		description: "",
+		link: '',
+		tags: [],
+	},
+	{
+		period: 'Sep 2021 - Jan 2026',
+		title: 'BSc Computer Engineering',
+		place: 'UPC (Spain)',
+		description: "Bachelor's thesis: 9.3 / 10.",
+		link: 'https://github.com/morsoth/TFG-FIB',
+		tags: ['Computer architecture', 'Microcontrollers', 'Real-time systems', 'Operating systems', 'VLSI design', 'Digital Signal Processing'],
+	},
+	{
+		period: 'Sept 2019 - Jun 2021',
+		title: 'Tech High School',
+		place: 'Stucom (Spain)',
+		description: 'Graduated with honors.',
+		link: 'https://picbrick-studios.itch.io/the-corrupted-forest',
+		tags: ['Maths', 'Physics', 'Technichal drawing', 'Videogames development'],
+	},
+	{
+		period: 'Sep 2019 - Jun 2021',
+		title: "Academica's DUAL Diploma ®",
+		place: 'Online',
+		description: 'Graduated with honors.',
+		link: '',
+		tags: ['English communication', 'Remote learning'],
+	},
+];
+
+const work = [
+	{
+		period: 'Sep 2025 - Present',
+		title: 'Informatics Engineer',
+		place: 'Domo21',
+		description:
+			'Working on software and systems engineering tasks, building internal tools and contributing to technical solutions across product and operations workflows.',
+		tags: ['Software development', 'Systems integration', 'Automation', 'Technical support'],
+	},
+	{
+		period: 'Dec 2024 - Apr 2025',
+		title: 'RTL Designer',
+		place: 'BSC-CNS',
+		description:
+			'Internship focused on RTL design and hardware description workflows, contributing to digital logic implementation, verification, and documentation tasks.',
+		tags: ['RTL design', 'SystemVerilog', 'Digital logic', 'Verification'],
+	},
+];
+
+---
+
+<section id="experience" class="py-20">
+	<h2 class="mb-10 font-code text-2xl font-black text-foreground">
+		<span class="text-accent font-normal">03.</span> Experience
+	</h2>
+
+	<div id="experience-tabs">
+		<div class="mb-8 flex border-b border-surface font-code text-sm text-muted" role="tablist">
+			<button
+				class="-mb-px cursor-pointer border-b-2 border-accent px-4 py-3 text-accent transition"
+				type="button"
+				role="tab"
+				aria-selected="true"
+				aria-controls="studies-panel"
+				data-tab="studies"
+			>
+				Studies
+			</button>
+			<button
+				class="-mb-px cursor-pointer border-b-2 border-transparent px-4 py-3 transition hover:text-accent"
+				type="button"
+				role="tab"
+				aria-selected="false"
+				aria-controls="work-panel"
+				data-tab="work"
+			>
+				Work
+			</button>
+		</div>
+
+		<div id="studies-panel" role="tabpanel" data-panel="studies">
+			<div class="space-y-4 md:columns-2 md:gap-4 md:space-y-0">
+				{studies.map((study) => (
+					<article class="mb-4 break-inside-avoid rounded-lg border border-surface bg-background p-5">
+						<div class="flex items-start justify-between gap-4">
+							<p class="font-code text-sm text-muted">{study.period}</p>
+							{study.link && (
+								<a
+									class="text-xl text-accent transition hover:text-foreground"
+									href={study.link}
+									target="_blank"
+									rel="noreferrer"
+									aria-label={`${study.title} link`}
+								>
+									<IconExternalLink class="size-5" stroke="2" />
+								</a>
+							)}
+						</div>
+						<h3 class="mt-2 text-lg font-semibold md:text-xl">{study.title}</h3>
+						<p class="mt-1 font-code text-sm text-accent">{study.place}</p>
+						<p class="mt-3 text-pretty text-xs leading-5 text-muted sm:text-sm sm:leading-7">{study.description}</p>
+						<div class="mt-4 flex flex-wrap gap-2">
+							{study.tags.map((tag) => (
+								<Tag>{tag}</Tag>
+							))}
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+
+		<div id="work-panel" class="hidden" role="tabpanel" data-panel="work">
+			<div class="relative space-y-10 before:absolute before:bottom-3 before:left-2 before:top-3 before:w-px before:bg-linear-to-b before:from-surface before:via-surface before:to-transparent">
+				{work.map((job) => (
+					<article class="relative pl-10">
+						<span class="absolute left-0 top-2 size-4 rounded-full border-2 border-accent bg-background"></span>
+						<p class="font-code text-sm text-muted">{job.period}</p>
+						<h3 class="mt-2 flex flex-col items-start gap-1 text-2xl font-semibold sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-2">
+							<span>{job.title}</span>
+							<span class="inline-flex items-center gap-1.5 text-lg font-normal text-accent sm:text-2xl">
+								<IconDiode class="size-6 shrink-0 sm:size-8" stroke="1.5" />
+								{job.place}
+							</span>
+						</h3>
+						<p class="mt-2 text-pretty text-xs leading-5 text-muted sm:text-sm sm:leading-7">{job.description}</p>
+						<div class="mt-4 flex flex-wrap gap-2">
+							{job.tags.map((tag) => (
+								<Tag>{tag}</Tag>
+							))}
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	const experienceTabs = document.querySelector('#experience-tabs');
+	const tabs = experienceTabs?.querySelectorAll('[data-tab]');
+	const panels = experienceTabs?.querySelectorAll('[data-panel]');
+
+	tabs?.forEach((tab) => {
+		tab.addEventListener('click', () => {
+			const selected = tab.getAttribute('data-tab');
+
+			tabs.forEach((item) => {
+				const isActive = item.getAttribute('data-tab') === selected;
+
+				item.setAttribute('aria-selected', String(isActive));
+				item.classList.toggle('border-accent', isActive);
+				item.classList.toggle('text-accent', isActive);
+				item.classList.toggle('border-transparent', !isActive);
+				item.classList.toggle('text-muted', !isActive);
+			});
+
+			panels?.forEach((panel) => {
+				panel.classList.toggle('hidden', panel.getAttribute('data-panel') !== selected);
+			});
+		});
+	});
+</script>
