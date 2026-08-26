@@ -1,0 +1,25 @@
+﻿---
+import { blobatar } from 'blobatar';
+
+interface Props {
+	class?: string;
+	size?: number;
+}
+
+const { class: className = 'size-10', size = 40 } = Astro.props;
+
+const blobatarLogo = blobatar('morsoth', {
+	size,
+	background: 'squircle',
+	palette: {
+		bg: 'var(--background)',
+		head: '#7EAEEC',
+		eye: '#111111',
+	},
+	traits: {
+		shape: 0.35,
+	},
+});
+---
+
+<span class={className} set:html={blobatarLogo} />
