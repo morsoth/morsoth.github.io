@@ -41,19 +41,19 @@ const studies = [
 const work = [
 	{
 		period: 'Sep 2025 - Present',
-		title: 'Informatics Engineer',
+		title: 'Electronics Engineer',
 		place: 'Domo21',
 		description:
-			'Working on software and systems engineering tasks, building internal tools and contributing to technical solutions across product and operations workflows.',
-		tags: ['Software development', 'Systems integration', 'Automation', 'Technical support'],
+			'Designed the PCB, electronics, and firmware for a meteorological probe used in an autonomous drone project. My work covered component selection, PCB design, manufacturing handoff, assembly, testing, firmware development, and full-system validation. The design integrated envirnmental sensing, power management and monitoring, solar charging with battery storage, FRAM data logging, an STM32 MCU, BLE wireless connectivity, and sleep/wake power-saving modes.',
+		tags: ['PCB design', 'Kicad', 'STM32', 'Solar panels', 'Environmental sensors', 'Bluetooth LE', 'Firmware'],
 	},
 	{
 		period: 'Dec 2024 - Apr 2025',
 		title: 'RTL Designer',
 		place: 'BSC-CNS',
 		description:
-			'Internship focused on RTL design and hardware description workflows, contributing to digital logic implementation, verification, and documentation tasks.',
-		tags: ['RTL design', 'SystemVerilog', 'Digital logic', 'Verification'],
+			'Internship focused on BSC\'s Sargantana, an open-source RISC-V processor core. I worked on implementing LMUL > 1 support for vector instructions, extending the core to handle wider vector register groupings used by the RISC-V Vector Extension.',
+		tags: ['RTL design', 'SystemVerilog', 'RISC-V', 'Digital logic', 'Verification'],
 	},
 ];
 
@@ -132,7 +132,7 @@ const work = [
 								{job.place}
 							</span>
 						</h3>
-						<p class="mt-2 text-pretty text-xs leading-5 text-muted sm:text-sm sm:leading-7">{job.description}</p>
+						<p class="mt-2 text-pretty text-xs leading-5 text-muted sm:text-sm sm:leading-7 whitespace-pre-line">{job.description}</p>
 						<div class="mt-4 flex flex-wrap gap-2">
 							{job.tags.map((tag) => (
 								<Tag>{tag}</Tag>
