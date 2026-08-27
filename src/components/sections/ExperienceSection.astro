@@ -1,4 +1,4 @@
----
+﻿---
 import IconDiode from '../../assets/IconDiode.astro';
 import IconExternalLink from '../../assets/IconExternalLink.astro';
 import Tag from '../Tag.astro';
@@ -8,7 +8,7 @@ const studies = [
 		period: 'To be enroled...',
 		title: 'MSc Electronics Engineering',
 		place: 'UPC (Spain)',
-		description: "",
+		description: [],
 		link: '',
 		tags: [],
 	},
@@ -16,7 +16,7 @@ const studies = [
 		period: 'Sep 2021 - Jan 2026',
 		title: 'BSc Computer Engineering',
 		place: 'UPC (Spain)',
-		description: "Bachelor's thesis: 9.3 / 10.",
+		description: ["Bachelor's thesis: 9.3 / 10."],
 		link: 'https://github.com/morsoth/TFG-FIB',
 		tags: ['Computer architecture', 'Microcontrollers', 'Real-time systems', 'Operating systems', 'VLSI design', 'Digital Signal Processing'],
 	},
@@ -24,7 +24,7 @@ const studies = [
 		period: 'Sept 2019 - Jun 2021',
 		title: 'Tech High School',
 		place: 'Stucom (Spain)',
-		description: 'Graduated with honors.',
+		description: ['Graduated with honors.'],
 		link: 'https://picbrick-studios.itch.io/the-corrupted-forest',
 		tags: ['Maths', 'Physics', 'Technichal drawing', 'Videogames development'],
 	},
@@ -32,7 +32,7 @@ const studies = [
 		period: 'Sep 2019 - Jun 2021',
 		title: "Academica's DUAL Diploma ®",
 		place: 'Online',
-		description: 'Graduated with honors.',
+		description: ['Graduated with honors.'],
 		link: '',
 		tags: ['English communication', 'Remote learning'],
 	},
@@ -43,16 +43,19 @@ const work = [
 		period: 'Sep 2025 - Present',
 		title: 'Electronics Engineer',
 		place: 'Domo21',
-		description:
-			'Designed the PCB, electronics, and firmware for a meteorological probe used in an autonomous drone project. My work covered component selection, PCB design, manufacturing handoff, assembly, testing, firmware development, and full-system validation.\nThe design integrated envirnmental sensing, power management and monitoring, solar charging with battery storage, FRAM data logging, an STM32 MCU, BLE wireless connectivity, and sleep/wake power-saving modes.',
+		description: [
+			'Designed the PCB, electronics, and firmware for a meteorological probe used in an autonomous drone project. My work covered component selection, PCB design, manufacturing handoff, assembly, testing, firmware development, and full-system validation.',
+			'The design integrated environmental sensing, power management and monitoring, solar charging with battery storage, FRAM data logging, an STM32 MCU, BLE wireless connectivity, and sleep/wake power-saving modes.',
+		],
 		tags: ['PCB design', 'Kicad', 'STM32', 'Solar panels', 'Environmental sensors', 'Bluetooth LE', 'Firmware'],
 	},
 	{
 		period: 'Dec 2024 - Apr 2025',
 		title: 'RTL Designer',
 		place: 'BSC-CNS',
-		description:
+		description: [
 			'Internship focused on BSC\'s Sargantana, an open-source RISC-V processor core. I worked on implementing LMUL > 1 support for vector instructions, extending the core to handle wider vector register groupings used by the RISC-V Vector Extension.',
+		],
 		tags: ['RTL design', 'SystemVerilog', 'RISC-V', 'Digital logic', 'Verification'],
 	},
 ];
@@ -108,7 +111,13 @@ const work = [
 						</div>
 						<h3 class="mt-2 text-lg font-semibold md:text-xl">{study.title}</h3>
 						<p class="mt-1 font-code text-sm text-accent">{study.place}</p>
-						<p class="mt-3 text-pretty text-xs leading-5 text-muted sm:text-sm sm:leading-7">{study.description}</p>
+						{study.description.length > 0 && (
+							<div class="mt-3 flex flex-col gap-2">
+								{study.description.map((paragraph) => (
+									<p class="text-pretty text-xs leading-5 text-muted sm:text-sm sm:leading-7">{paragraph}</p>
+								))}
+							</div>
+						)}
 						<div class="mt-4 flex flex-wrap gap-2">
 							{study.tags.map((tag) => (
 								<Tag>{tag}</Tag>
@@ -132,7 +141,11 @@ const work = [
 								{job.place}
 							</span>
 						</h3>
-						<p class="mt-2 text-pretty text-xs leading-5 text-muted sm:text-sm sm:leading-7 whitespace-pre-line">{job.description}</p>
+						<div class="mt-2 flex flex-col gap-2">
+							{job.description.map((paragraph) => (
+								<p class="text-pretty text-xs leading-5 text-muted sm:text-sm sm:leading-7">{paragraph}</p>
+							))}
+						</div>
 						<div class="mt-4 flex flex-wrap gap-2">
 							{job.tags.map((tag) => (
 								<Tag>{tag}</Tag>

@@ -7,15 +7,17 @@ const areas = [
 	{
 		title: 'Embedded systems',
 		Icon: IconCpu,
-		description:
+		description: [
 			'I enjoy building close to the hardware, where constraints, timing, and real-world signals shape the solution.',
+		],
 		technologies: ['C', 'C++', 'PCB design', 'Microcontrollers', 'Linux', 'ICs', 'Sensors'],
 	},
 	{
 		title: 'Digital design',
 		Icon: IconLogicXnor,
-		description:
+		description: [
 			'I like designing RTL blocks and thinking about architecture, verification, and how logic maps into actual hardware.',
+		],
 		technologies: ['VHDL', 'SystemVerilog', 'FPGA', 'RTL', 'Digital logic', 'CPU architecture'],
 	},
 ];
@@ -73,7 +75,11 @@ const photoMask = 'M30 31 Q31 20 42 18 L228 24 Q240 24 239 36 L230 218 Q229 230 
 						<Icon class="size-8 text-accent" stroke="1.75" />
 						{area.title}
 					</h3>
-					<p class="mt-3 text-pretty text-xs leading-5 text-muted sm:text-sm sm:leading-7">{area.description}</p>
+					<div class="mt-3 flex flex-col gap-2">
+						{area.description.map((paragraph) => (
+							<p class="text-pretty text-xs leading-5 text-muted sm:text-sm sm:leading-7">{paragraph}</p>
+						))}
+					</div>
 					<div class="mt-4 flex flex-wrap gap-2">
 						{area.technologies.map((technology) => (
 							<Tag>{technology}</Tag>

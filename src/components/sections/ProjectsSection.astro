@@ -8,7 +8,7 @@ import Tag from '../Tag.astro';
 const projects = [
 	{
 		title: 'Tydeus-16 Core',
-		description: 'A simple 16-bit multicycle CPU core in VHDL, featuring a custom ISA, separate instruction and data memories, and a clean design.',
+		description: ['A simple 16-bit multicycle CPU core in VHDL, featuring a custom ISA, separate instruction and data memories, and a clean design.'],
 		repos: [
 			{
 				name: 'tydeus16-core',
@@ -27,7 +27,7 @@ const projects = [
 	},
 	{
 		title: 'UART Module for FPGA',
-		description: 'FPGA-based UART core featuring FIFO buffering and AXI4-Lite register access, with a minimal C driver for deterministic and low-level control.',
+		description: ['FPGA-based UART core featuring FIFO buffering and AXI4-Lite register access, with a minimal C driver for deterministic and low-level control.'],
 		repos: [
 			{
 				name: 'vhdl-uart-axi-module',
@@ -41,7 +41,7 @@ const projects = [
 	},
 	{
 		title: 'ZeOS',
-		description: 'Basic x86 UNIX-like kernel implementation for the SO2 course. Runs space invaders.',
+		description: ['Basic x86 UNIX-like kernel implementation for the SO2 course. Runs space invaders.'],
 		repos: [
 			{
 				name: 'zeos',
@@ -97,7 +97,11 @@ const projects = [
 					</div>
 				</div>
 
-				<p class="mt-3 text-pretty text-xs leading-5 text-muted sm:text-sm sm:leading-7">{project.description}</p>
+				<div class="mt-3 flex flex-col gap-2">
+					{project.description.map((paragraph) => (
+						<p class="text-pretty text-xs leading-5 text-muted sm:text-sm sm:leading-7">{paragraph}</p>
+					))}
+				</div>
 
 				<div class="mt-6 flex flex-col gap-3">
 					{project.repos.map((repo) => (
